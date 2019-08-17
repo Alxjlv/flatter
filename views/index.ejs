@@ -11,7 +11,7 @@
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <!-- Custom CSS -->
     <link rel="stylesheet" type="text/css" href="/css/style.css"/>
-    
+    <script type="text/javascript" src="/app.js"></script>
     <title>Hello, world!</title>
 </head>
 
@@ -33,11 +33,15 @@
             <div class="form-group col-md-3">
                 <button type="submit" id="search-button" class="btn btn-primary">Search</button>
             </div>
-        </div>
-        
-            
-               
+        </div>   
     </form>
+    <p><%= mockobject.suburb %></p>
+    <h1 id="target"><%= tagline %></h1>
+    <ul>
+        <% drinks.forEach(function(drink) { %>
+            <li><%= drink.name %> - <%= drink.drunkness %></li>
+        <% }); %>
+    </ul>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
