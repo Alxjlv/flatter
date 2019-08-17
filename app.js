@@ -1,9 +1,7 @@
 const express = require('express')
 const app = express()
-// const axios = require('axios')
-// const google = require('./google')
-// const suburb = google.getSuburbDuration();
 const port = process.env.PORT || 3000;
+const requester = require('./requester')
 var router = express.Router();
 var path = __dirname + '/views/';
 const mockobject = {
@@ -37,6 +35,7 @@ router.get("/", function (req, res) {
     mockobject: mockobject
   })
 });
+
 
 app.use("/", router);
 
