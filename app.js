@@ -1,15 +1,11 @@
 const express = require('express')
 const app = express()
-// const axios = require('axios')
-// const google = require('./google')
-// const suburb = google.getSuburbDuration();
 const port = process.env.PORT || 3000;
+const requester = require('./requester')
 var router = express.Router();
 var path = __dirname + '/views/';
 
 app.use(express.static(__dirname+'/public'));
-
-// console.log(suburb("auckland","morningside","University-Of-Auckland"))
 
 router.use(function (req,res,next) {
     console.log("/" + req.method);
