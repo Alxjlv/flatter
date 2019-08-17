@@ -6,9 +6,7 @@ const mode = "transit"
 // const destination;
 
 const getSuburbDuration = async (region, suburb, destination) => {
-    region = stringFormat(region)
-    suburb = stringFormat(suburb)
-    destination = stringFormat(destination)
+    
     //console.log(`${suburb}-${region}`)
     try {
         const response = await axios.get(`https://maps.googleapis.com/maps/api/directions/json?origin=${suburb}-${region}&destination=${destination}&mode=${mode}&key=${KEY}`);
@@ -21,10 +19,7 @@ const getSuburbDuration = async (region, suburb, destination) => {
 }
 
 const getFlatDuration = async (flat, region, suburb, destination) => {
-    region = stringFormat(region)
-    suburb = stringFormat(suburb)
-    destination = stringFormat(destination)
-    flat = stringFormat(flat)
+    
     try {
         const response = await axios.get(`https://maps.googleapis.com/maps/api/directions/json?origin=${flat}&destination=${destination}&mode=${mode}&key=${KEY}`);
         //console.log(response);
@@ -36,14 +31,14 @@ const getFlatDuration = async (flat, region, suburb, destination) => {
 
 }
 
-const stringFormat = (string) => {
-    string = string.replace(/\W+/g, '-').toLowerCase();
-    return string;
+const getRegionOfDestination = ()=>{
+    //call places API
 }
 
 //getSuburbDuration('Auckland', 'Kingsland', 'The University of Auckland')
 
 module.exports = {
     getSuburbDuration,
-    getFlatDuration
+    getFlatDuration,
+    getRegionOfDestination
 }
