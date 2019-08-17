@@ -1,0 +1,25 @@
+{
+  "name": "flat-earth",
+  "version": "1.0.0",
+  "description": "The missing link between searching for flats and public transport",
+  "main": "app.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Alxjlv/flat-earth.git"
+  },
+  "keywords": [
+    "flats"
+  ],
+  "author": "Team Flat Earth",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Alxjlv/flat-earth/issues"
+  },
+  "homepage": "https://github.com/Alxjlv/flat-earth#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
