@@ -9,7 +9,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
+       
     <title>Hello, world!</title>
 </head>
 
@@ -18,7 +18,7 @@
         <img src="/images/logo.jpg" class="img-fluid" alt="Responsive image">
     </div>
 
-    <form class="form-inline">
+    <form class="form-row form-inline">
         <div class="form-group mb-2">
             <label class="mx-sm-1">Study/Work address</label>
             <input type="text" class="form-control" placeholder="e.g. University of Auckland">
@@ -32,50 +32,25 @@
         </div>
     </form>
 
-
-    <!--
-    <div class="container">
-        <div class="row">
-            <div class="col-sm">
-                <label>Study/Work address</label>
-                <input type="text" class="form-control" placeholder="e.g. University of Auckland">
+    <form>
+        <div class="form-row">
+            <div class="form-group col-md-3">
+                <label for="inputEmail4">Study/Work address</label>
+                <input type="text" class="form-control" id="inputEmail4" placeholder="e.g. University of Auckland">
             </div>
-            
-            <div class="col-sm">
-                <select class="form-control">
-                    <option>University of Auckland</option>
-                    <option>University of Waikato</option>
-                    <option>Victoria University</option>
-                    <option>Auckland University of Technology</option>
-                    <option>Massey University</option>
-                </select>
+            <div class="form-group col-md-3">
+                <label for="inputPassword4">Desired travel time (in minutes)</label>
+                <input type="number" class="form-control" id="inputPassword4" placeholder="e.g. 110">
             </div>
-            
-            <div class="col-sm">
-                <label>Desired travel time</label>
-                <input type="email" class="form-control" placeholder="e.g. University of Auckland">
-            </div>
-            <div class="col-sm">
-                <button type="submit" class="btn btn-primary mb-2">Search</button>
+            <div class="form-group col-md-3">
+                <button type="submit" id="search-button" class="btn btn-primary">Search</button>
             </div>
         </div>
-    </div>
--->
-    <!--
-    <form>
-            <div class="form-row">
-              <div class="col-7">
-                <input type="text" class="form-control" placeholder="City">
-              </div>
-              <div class="col">
-                <input type="text" class="form-control" placeholder="State">
-              </div>
-              <div class="col">
-                <input type="text" class="form-control" placeholder="Zip">
-              </div>
-            </div>
-          </form>
-        -->
+        
+            
+               
+    </form>
+
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
