@@ -1,20 +1,31 @@
 const google = require('./google')
 const tooFar;
 const closeEnough;
+const ListingID;
 
-const sortBySuburb = (region,destination) =>{
+const sortBySuburb = (region,destination,duration) =>{
     //cycle through trademe list (sorted by suburb)
     //get suburb
     trademelist.forEach(element => {
         suburb = element.Suburb
-        if 
+        if( (tooFar.includes(suburb))||(closeEnough.includes(suburb)) ){
+            console.log("element already checked")
+        }else{
+            region = stringFormat(region)
+            suburb = stringFormat(suburb)
+            destination = stringFormat(destination)
+            let suburbDuration = google.getSuburbDuration(region,suburb,destination)
+        }
     });
-    region = stringFormat(region)
-    suburb = stringFormat(suburb)
-    destination = stringFormat(destination)
+    
 
-    let suburbDuration = google.getSuburbDuration(region,suburb,destination)
+    
 
+}
+
+const gridList = () =>{
+    //some sort of iteration
+    listingID="some sort of API call here"
 }
 
 const specificFlatDetails = (flat,destination) =>{
