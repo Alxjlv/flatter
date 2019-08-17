@@ -1,7 +1,14 @@
 const google = require('./google')
+const tooFar;
+const closeEnough;
 
 const sortBySuburb = (region,destination) =>{
     //cycle through trademe list (sorted by suburb)
+    //get suburb
+    trademelist.forEach(element => {
+        suburb = element.Suburb
+        if 
+    });
     region = stringFormat(region)
     suburb = stringFormat(suburb)
     destination = stringFormat(destination)
@@ -25,4 +32,4 @@ const stringFormat = (string) => { //removes whitespace in the input
 }
 
 
-console.log(suburbDuration)
+//console.log(suburbDuration)
