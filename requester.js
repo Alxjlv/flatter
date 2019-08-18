@@ -1,7 +1,8 @@
 const google = require('./google')
-const tooFar;
-const closeEnough;
-const ListingID;
+const trademe =  require('./trademe')
+var tooFar;
+var closeEnough;
+var ListingID;
 
 const sortBySuburb = (region,destination,duration) =>{
     //cycle through trademe list (sorted by suburb)
@@ -14,19 +15,26 @@ const sortBySuburb = (region,destination,duration) =>{
             region = stringFormat(region)
             suburb = stringFormat(suburb)
             destination = stringFormat(destination)
-            let suburbDuration = google.getSuburbDuration(region,suburb,destination)
+            let suburbDuration = google.getFlatDuration(region,suburb,destination)
         }
     });
-    
-
-    
 
 }
-
-const gridList = () =>{
-    //some sort of iteration
-    listingID="some sort of API call here"
+const GridList=async(region,district, suburbID,destination)=>{
+  flatslist=await trademe(region,district, suburbID);
+  console.log(flatslist)
+  flatslist.forEach(async(flat)=>{
+    flatDispObj={}
+    flatDispObj.title=flat.Title
+    flatDispObj.flatID=flat.ListingId
+    flatDispObj.price=flat.PriceDisplay
+    suburb = flat.Suburb
+    flatDispObj.duration= await google.getFlatDuration(flat.address, region, suburbID, destination)
+    console.log(flatDispObj)
+  })
 }
+GridList("Auckland","Auckland",282,"GridAkl")
+
 
 const specificFlatDetails = (flat,destination) =>{
     //get region and suburb from trademe
