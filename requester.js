@@ -84,6 +84,7 @@ const GridList=async(region,district, suburbID,destination)=>{
   });
 return gridlist
 }
+GridList("Auckland","Auckland City",282,"GridAkl").then((d)=>{console.log("list",d)});
 
 
 const specificFlatDetails = (flat,destination) =>{
