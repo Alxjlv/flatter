@@ -10,9 +10,9 @@ const mockobject = {
   distance: 10
 }
 var suburbs = [
-  { name: 'Auckland', duration: 7 },
-  { name: 'Hamilton', duration: 5 },
-  { name: 'Example 3', duration: 10 }
+  { name: 'Auckland', duration: 7, numListings: 100 },
+  { name: 'Hamilton', duration: 5, numListings: 70 },
+  { name: 'Example 3', duration: 10, numListings: 30 }
 ];
 var tagline = "Any code of your own that you haven't looked at for six or more months might as well have been written by someone else.";
 

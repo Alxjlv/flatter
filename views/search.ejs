@@ -12,7 +12,7 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" type="text/css" href="/css/style.css"/>
     <script type="text/javascript" src="/javascript/javascript.js"></script>
-    <title>Flatter Homepage</title>
+    <title>Search Flatter</title>
 </head>
 <header>
     <% include partials/header %>
@@ -21,11 +21,14 @@
 <body>
         <p><%= mockobject.suburb %></p>
         <h1 id="target"><%= tagline %></h1>
-        <ul>
-            <% suburbs.forEach(function(suburb) { %>
-                <li><%= suburb.name %> - <%= suburb.duration %></li>
-            <% }); %>
+        <ul class="list-group list-group-flush" id="suburb-listings">
+                <% suburbs.forEach(function(suburb) { %>
+                    <li class="list-group-item"><%= suburb.name %> - <%= suburb.duration %></li>
+                <% }); %>
         </ul>
+
+
+
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
