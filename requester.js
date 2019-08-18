@@ -61,8 +61,8 @@ const checkCloseEnough = (suburb) => {
         return false;
     }
 }
-const GridList=async(region,district, suburbID,destination)=>{
-  var flatslist=await trademe.getFlatList(region,district, suburbID);
+const gridList=async(region,district, suburbID,destination)=>{
+  var flatslist=await trademe.getFlatList(region,district, "");
   var promiseList=[]
   flatslist.forEach((flat)=>{
 
@@ -84,7 +84,6 @@ const GridList=async(region,district, suburbID,destination)=>{
   });
 return gridlist
 }
-GridList("Auckland","Auckland City",282,"GridAkl").then((d)=>{console.log("list",d)});
 
 
 const specificFlatDetails = (flat,destination) =>{
@@ -103,3 +102,4 @@ const stringFormat = (string) => { //removes whitespace in the input
 
 
 //console.log(suburbDuration)
+module.exports= {gridList}
