@@ -1,6 +1,6 @@
 const axios = require('axios');
 const KEY = process.env.trademeKey;
-const SECRET = proess.env.trademeSecret;
+const SECRET = process.env.trademeSecret;
 
 
 const getFlatList = async(region,district="Auckland C",suburb="") => {
