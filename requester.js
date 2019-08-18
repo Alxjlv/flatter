@@ -1,13 +1,13 @@
 const google = require('./google')
-const tooFar;
-const closeEnough;
+//const tooFar;
+//const closeEnough;
 
 const sortBySuburb = (region,destination) =>{
     //cycle through trademe list (sorted by suburb)
     //get suburb
     trademelist.forEach(element => {
         suburb = element.Suburb
-        if 
+        //if 
     });
     region = stringFormat(region)
     suburb = stringFormat(suburb)

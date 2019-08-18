@@ -72,7 +72,7 @@ const getFlatDuration = async (flat, region, suburb, destination) => {
 
 
 module.exports = {
-    getSuburbDuration,
-    getFlatDuration,
-    getRegionOfDestination
+    //getSuburbDuration,
+    //getFlatDuration,
+    //getRegionOfDestination
 }
