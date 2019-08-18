@@ -4,20 +4,18 @@
         <img src="/images/flatter-logo.png" class="img-fluid" alt="Responsive image">
     </div>
 
-    <p class="subhead">Find your perfect flat based on where you want to go!</p>
-
-    <form class="center" action="search">
+    <form method="POST" class="center" action="search">
         <div class="form-row justify-content-center">
-            <div class="form-group col-md-3, col1">
+            <div class="form-group col-md-3 col1">
                 <label for="inputEmail4">Where do you want to commute?</label>
-                <input type="text" class="form-control" id="inputEmail4" placeholder="e.g. University of Auckland">
+                <input type="text" class="form-control" name="inputCommuteLocation" placeholder="e.g. University of Auckland">
             </div>
             <div class="form-group col-md-3, col2">
                 <label for="inputPassword4">Preferred Commute Time</label>
                 <div class="slidecontainer">
                     <div class="form-row">
                         <p class="mr-1">&lt5</p>
-                        <input type="range" min="5" max="120" value="50" class="slider" id="myRange">
+                        <input type="range" min="5" max="120" value="50" class="slider" name="inputCommuteTime">
                         <p class="ml-1">2hr+</p>
                     </div>
                 </div>
