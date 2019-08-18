@@ -15,11 +15,15 @@ var suburbs = [
   { name: 'Example 3', duration: 10, numListings: 30 }
 ];
 var tagline = "Any code of your own that you haven't looked at for six or more months might as well have been written by someone else.";
-
+var inputCommuteLocation, inputCommuteTime;
 // set the view engine to ejs
 app.set('view engine', 'ejs');
 
 app.use(express.static(__dirname + '/public'));
+
+
+app.use(express.json());       // to support JSON-encoded bodies
+app.use(express.urlencoded()); // to support URL-encoded bodies
 
 // console.log(suburb("auckland","morningside","University-Of-Auckland"))
 
@@ -32,14 +36,21 @@ router.get("/", function (req, res) {
   res.render(path + "index")
 });
 
-app.use("/search", function (req, res) {
+router.use('/search', function (req, res, next) {
   res.render(path + "search", {
     suburbs: suburbs,
     tagline: tagline,
-    mockobject: mockobject
+    mockobject: mockobject,
+    inputCommuteLocation: inputCommuteLocation,
+    inputCommuteTime: inputCommuteTime
   });
-});
+  next()
+})
 
+router.post('/search', function (req, res) {
+  var inputCommuteLocation = req.body.inputCommuteLocation,
+  inputCommuteTime = req.body.inputCommuteTime;
+})
 app.use("/", router);
 
 app.use("*", function (req, res) {
