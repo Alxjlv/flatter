@@ -17,8 +17,15 @@
 <header>
     <% include partials/header %>
 </header>
+
 <body>
-    
+        <p><%= mockobject.suburb %></p>
+        <h1 id="target"><%= tagline %></h1>
+        <ul>
+            <% suburbs.forEach(function(suburb) { %>
+                <li><%= suburb.name %> - <%= suburb.duration %></li>
+            <% }); %>
+        </ul>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
