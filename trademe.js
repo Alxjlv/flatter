@@ -1,6 +1,7 @@
 const axios = require('axios');
-const KEY = "1B2E786547417FF7CBD9369EBBB1554E";
-const SECRET = "BB272A71148EBDB97016DF8301B3FA28";
+const KEY = process.env.trademeKey;
+const SECRET = proess.env.trademeSecret;
+
 
 const getFlatList = async(region,district="Auckland C",suburb="") => {
     url='https://api.trademe.co.nz'
