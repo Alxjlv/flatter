@@ -74,6 +74,7 @@ const GridList=async(region,district, suburbID,destination)=>{
       flatDispObj.flatID=flat.ListingId
       flatDispObj.price=flat.PriceDisplay
       flatDispObj.duration=duration
+      flatDispObj.picture = flat.PictureHref
       return flatDispObj;
     }
   ))})
@@ -83,7 +84,6 @@ const GridList=async(region,district, suburbID,destination)=>{
   });
 return gridlist
 }
-GridList("Auckland","Auckland City",282,"GridAkl").then((d)=>{console.log("list",d)});
 
 
 const specificFlatDetails = (flat,destination) =>{
