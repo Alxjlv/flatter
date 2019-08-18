@@ -1,0 +1,27 @@
+<!-- views/partials/header.ejs -->
+
+    <div class="container-fluid">
+        <img src="/images/flatter-logo.png" class="img-fluid" alt="Responsive image">
+    </div>
+
+    <form action="search">
+        <div class="form-row">
+            <div class="form-group col-md-3">
+                <label for="inputEmail4">Where do you want to commute?</label>
+                <input type="text" class="form-control" id="inputEmail4" placeholder="e.g. University of Auckland">
+            </div>
+            <div class="form-group col-md-3">
+                <label for="inputPassword4">Preferred Commute Time</label>
+                <div class="slidecontainer">
+                    <div class="form-row">
+                        <p class="mr-1">&lt5</p>
+                        <input type="range" min="5" max="120" value="50" class="slider" id="myRange">
+                        <p class="ml-1">2hr+</p>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group col-md-3">
+                <button type="submit" id="search-button" class="btn btn-primary"">Find Flats</button>
+            </div>
+        </div>   
+    </form>

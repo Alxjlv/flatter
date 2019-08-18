@@ -1,6 +1,6 @@
 const google = require('./google')
-const tooFar;
-const closeEnough;
+//const tooFar;
+//const closeEnough;
 const ListingID;
 
 const sortBySuburb = (region,destination,duration) =>{
@@ -8,6 +8,7 @@ const sortBySuburb = (region,destination,duration) =>{
     //get suburb
     trademelist.forEach(element => {
         suburb = element.Suburb
+
         if( (tooFar.includes(suburb))||(closeEnough.includes(suburb)) ){
             console.log("element already checked")
         }else{
