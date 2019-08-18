@@ -15,7 +15,7 @@ const sortBySuburb = async (region,destination,duration,district) =>{
         suburb = element.Suburb
         if(tooFar.includes(suburb)){
             console.log("element too far");
-            
+
         }else if(checkCloseEnough(suburb)){
             console.log("added 1 flat");
 
@@ -39,10 +39,10 @@ const sortBySuburb = async (region,destination,duration,district) =>{
                 closeEnough.push(temp)
                 console.log(closeEnough)
             }
-            
+
         }
     });
-    
+
 }
 
 sortBySuburb("Auckland","GridAKL","59","Auckland")
@@ -62,19 +62,29 @@ const checkCloseEnough = (suburb) => {
     }
 }
 const GridList=async(region,district, suburbID,destination)=>{
-  flatslist=await trademe(region,district, suburbID);
-  console.log(flatslist)
-  flatslist.forEach(async(flat)=>{
-    flatDispObj={}
-    flatDispObj.title=flat.Title
-    flatDispObj.flatID=flat.ListingId
-    flatDispObj.price=flat.PriceDisplay
-    suburb = flat.Suburb
-    flatDispObj.duration= await google.getFlatDuration(flat.address, region, suburbID, destination)
-    console.log(flatDispObj)
-  })
+  var flatslist=await trademe.getFlatList(region,district, suburbID);
+  var promiseList=[]
+  flatslist.forEach((flat)=>{
+
+    promiseList.push(
+      google.getFlatDuration(flat.address, region, suburbID, destination).
+    then((duration)=>{
+      flatDispObj={}
+      flatDispObj.title=flat.Title
+      flatDispObj.flatID=flat.ListingId
+      flatDispObj.price=flat.PriceDisplay
+      flatDispObj.duration=duration
+      flatDispObj.picture = flat.PictureHref
+      return flatDispObj;
+    }
+  ))})
+  gridlist= Promise.all(promiseList ).then(function(values) {
+    //console.log(values);
+    return values
+  });
+return gridlist
 }
-GridList("Auckland","Auckland",282,"GridAkl")
+GridList("Auckland","Auckland City",282,"GridAkl").then((d)=>{console.log("list",d)});
 
 
 const specificFlatDetails = (flat,destination) =>{

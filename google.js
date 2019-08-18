@@ -41,7 +41,10 @@ const getFlatDuration = async (flat, region, suburb, destination) => {
         })
         //console.log(response);
         //console.log(response.data["routes"][0]);
-        console.log(response.data.routes[0].legs[0].duration.text);
+        data = response.data.routes[0].legs[0].duration.value
+        data = Math.round(data/60)
+        return data;
+        return
     } catch (error) {
         console.error(error);
     }
