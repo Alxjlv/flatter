@@ -56,9 +56,9 @@ const sortBySuburb = async (region,destination,district,duration) =>{
 
     return suburblist
 }
-sortBySuburb("Auckland", "GridAKL", "Auckland","50").then((d) => {
-    console.log(closeEnough)
-});
+// sortBySuburb("Auckland", "GridAKL", "Auckland","50").then((d) => {
+//     console.log(closeEnough)
+// });
 
 
 
