@@ -6,7 +6,7 @@ const mode = "transit"
 // const destination;
 
 const getSuburbDuration = async (region, suburb, destination) => {
-    
+
     //console.log(`${suburb}-${region}`)
     try {
         const response = await axios.get(`https://maps.googleapis.com/maps/api/directions/json?`,{
@@ -19,18 +19,21 @@ const getSuburbDuration = async (region, suburb, destination) => {
         })
         //console.log(response);
         //console.log(response.data["routes"][0]);
-        console.log(response.data.routes[0].legs[0].duration.text);
+        data = response.data.routes[0].legs[0].duration.value
+        data = Math.round(data/60)
+        console.log(data);
+        return data;
     } catch (error) {
         console.error(error);
     }
 }
 
 const getFlatDuration = async (flat, region, suburb, destination) => {
-    
+
     try {
         const response = await axios.get(`https://maps.googleapis.com/maps/api/directions/json?`,{
             params: {
-                "origin": flat,
+                "origin": flat+","+suburb+","+region,
                 "destination": destination,
                 "mode":"transit",
                 "key":KEY
@@ -48,7 +51,7 @@ const getFlatDuration = async (flat, region, suburb, destination) => {
 // const getRegionOfDestination = async (destination)=>{
 //     //call places API
 //     try{
-//         const response = await axios.get(`https://maps.googleapis.com/maps/api/directions/json?`,{ 
+//         const response = await axios.get(`https://maps.googleapis.com/maps/api/directions/json?`,{
 //             params: {
 //                 "origin": destination,
 //                 "destination": destination,
@@ -72,7 +75,5 @@ const getFlatDuration = async (flat, region, suburb, destination) => {
 
 
 module.exports = {
-    //getSuburbDuration,
-    //getFlatDuration,
-    //getRegionOfDestination
-}
+    getSuburbDuration,
+    getFlatDuration}
