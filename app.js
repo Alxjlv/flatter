@@ -1,7 +1,7 @@
 const express = require('express')
 const app = express()
 const port = process.env.PORT || 3000;
-const requester = require('./requester')
+//const requester = require('./requester')
 var router = express.Router();
 var path = __dirname + '/views/';
 const mockobject = {
