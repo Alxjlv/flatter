@@ -1,66 +1,68 @@
 const google = require('./google')
 
 const trademe = require('./trademe')
-let tooFar = []
 let closeEnough = []
 //const ListingID;
 
+// const testTradeMe = async () =>{
+//     trademelist = await trademe.getFlatList("Auckland","Auckland")
+//     console.log(trademelist)
+// }
 
-const sortBySuburb = async (region,destination,duration,district) =>{
-    //cycle through trademe list (sorted by suburb)
+// testTradeMe()
+
+const sortBySuburb = async (region,destination,district,duration) =>{
+    //cycle through trademe list
     //get suburb
-    trademelist = await trademe.getFlatList(region,district);
+    let trademelist = await trademe.getFlatList(region,district);
     //console.log(trademelist)
-    trademelist.List.forEach(async(element) => {
-        suburb = element.Suburb
-        if(tooFar.includes(suburb)){
-            console.log("element too far");
+    var promiseList = []
+    trademelist.forEach((element) => {
+        promiseList.push(
+            google.getSuburbDuration(region,element.Suburb,destination).then((duration)=>{
+                obj={}
+                obj.suburb = element.Suburb;
+                obj.suburbID = element.SuburbId;
+                obj.duration = duration;
+                //obj.numListings  = 1;
+                return obj
+            })
+
             
-        }else if(checkCloseEnough(suburb)){
-            console.log("added 1 flat");
-
-        }else{
-            region = stringFormat(region)
-            suburb = stringFormat(suburb)
-            destination = stringFormat(destination)
-
-            let suburbDuration = await google.getSuburbDuration(region,suburb,destination)
-            console.log("Would call API here")
-            console.log(suburbDuration)
-
-            //get number of listings in that suburb
-            //add json to suburb
-            //suburbDuration = "20 mins"
-            if(suburbDuration > duration){
-                tooFar.push(suburb)
-                console.log(tooFar)
-            }else{
-                temp = {"suburb": suburb,"duration": suburbDuration,"numListings":1}
-                closeEnough.push(temp)
-                console.log(closeEnough)
-            }
-            
-        }
-    });
-    
-}
-
-sortBySuburb("Auckland","GridAKL","59","Auckland")
-
-const checkCloseEnough = (suburb) => {
-    if (closeEnough && closeEnough.length) {
-        console.log("array is empty")
-        return false
-    } else {
-        closeEnough.forEach(element => {
-            if (element.suburb == suburb) {
-                element.numListings = element.numListings + 1
-                return true
+        )
+    })
+    suburblist=Promise.all(promiseList).then((v)=>{
+        v.forEach((item) => {
+            if (item.duration > duration) {
+                console.log("deleted");
+            } else {
+                closeEnough.push(item);
+                console.log("Added");
             }
         });
-        return false;
-    }
+        closeEnough.sort(function(a,b){
+            if(a.duration > b.duration){
+                return 1;
+            }
+            if(a.duration < b.duration){
+                return -1;
+            }
+            return 0;
+        })
+        
+        return v})
+
+    console.log(suburblist)
+
+    return suburblist
 }
+sortBySuburb("Auckland", "GridAKL", "Auckland","50").then((d) => {
+    console.log(closeEnough)
+});
+
+
+
+
 const GridList=async(region,district, suburbID,destination)=>{
   flatslist=await trademe(region,district, suburbID);
   console.log(flatslist)
@@ -74,7 +76,7 @@ const GridList=async(region,district, suburbID,destination)=>{
     console.log(flatDispObj)
   })
 }
-GridList("Auckland","Auckland",282,"GridAkl")
+//GridList("Auckland","Auckland",282,"GridAkl")
 
 
 const specificFlatDetails = (flat,destination) =>{
