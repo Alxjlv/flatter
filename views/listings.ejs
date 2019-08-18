@@ -10,14 +10,25 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <!-- Custom CSS -->
-    <link rel="stylesheet" type="text/css" href="/css/style-index.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/style-header.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/style-search.css"/>
     <script type="text/javascript" src="/javascript/javascript.js"></script>
-    <title>Flatter Homepage</title>
+    <title>Search Flatter</title>
 </head>
 <header>
     <% include partials/header %>
 </header>
+
 <body>
+    <div class="container">   
+    <div class="row"" id="suburb-listings">
+                <% var i = 0; suburbs.forEach(function(suburb) { i++ %>
+                    <div class="col-sm-<%= i > 2 ? 4 : 6 %>"><%= suburb.name %> - <%= suburb.duration %></div>
+                <% }); %>
+    </div>
+    </div>
+
+
 
 
     <!-- Optional JavaScript -->

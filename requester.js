@@ -64,20 +64,30 @@ const sortBySuburb = async (region,destination,district,duration) =>{
 
 
 const GridList=async(region,district, suburbID,destination)=>{
-  flatslist=await trademe(region,district, suburbID);
-  console.log(flatslist)
-  flatslist.forEach(async(flat)=>{
-    flatDispObj={}
-    flatDispObj.title=flat.Title
-    flatDispObj.flatID=flat.ListingId
-    flatDispObj.price=flat.PriceDisplay
-    suburb = flat.Suburb
-    flatDispObj.duration= await google.getFlatDuration(flat.address, region, suburbID, destination)
-    console.log(flatDispObj)
-  })
-}
-//GridList("Auckland","Auckland",282,"GridAkl")
+  var flatslist=await trademe.getFlatList(region,district, suburbID);
+  var promiseList=[]
+  flatslist.forEach((flat)=>{
 
+    promiseList.push(
+      google.getFlatDuration(flat.address, region, suburbID, destination).
+    then((duration)=>{
+      flatDispObj={}
+      flatDispObj.title=flat.Title
+      flatDispObj.flatID=flat.ListingId
+      flatDispObj.price=flat.PriceDisplay
+      flatDispObj.duration=duration
+      flatDispObj.picture = flat.PictureHref
+      return flatDispObj;
+    }
+  ))})
+  gridlist= Promise.all(promiseList ).then(function(values) {
+    //console.log(values);
+    return values
+  });
+return gridlist
+}
+
+GridList("Auckland","Auckland City",282,"GridAkl").then((d)=>{console.log("list",d)});
 
 const specificFlatDetails = (flat,destination) =>{
     //get region and suburb from trademe
