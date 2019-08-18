@@ -144,6 +144,10 @@ router.post('/search', function (req, res) {
   var inputCommuteLocation = req.body.inputCommuteLocation,
   inputCommuteTime = req.body.inputCommuteTime;
 })
+router.post('/', function (req, res) {
+  var inputCommuteLocation = req.body.inputCommuteLocation,
+  inputCommuteTime = req.body.inputCommuteTime;
+})
 
 router.use('/listings', function (req, res) {
   res.render(path + "listings", {
