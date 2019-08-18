@@ -19,7 +19,10 @@ const getSuburbDuration = async (region, suburb, destination) => {
         })
         //console.log(response);
         //console.log(response.data["routes"][0]);
-        console.log(response.data.routes[0].legs[0].duration.text);
+        data = response.data.routes[0].legs[0].duration.value
+        data = Math.round(data/60)
+        console.log(data);
+        return data;
     } catch (error) {
         console.error(error);
     }
@@ -72,7 +75,8 @@ const getFlatDuration = async (flat, region, suburb, destination) => {
 
 
 module.exports = {
-    //getSuburbDuration,
-    //getFlatDuration,
-    //getRegionOfDestination
+    suburb-filter
+    getSuburbDuration,
+    getFlatDuration
+
 }

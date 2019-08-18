@@ -1,27 +1,65 @@
 const google = require('./google')
-//const tooFar;
-//const closeEnough;
-const ListingID;
 
-const sortBySuburb = (region,destination,duration) =>{
+const trademe = require('./trademe')
+let tooFar = []
+let closeEnough = []
+//const ListingID;
+
+
+const sortBySuburb = async (region,destination,duration,district) =>{
     //cycle through trademe list (sorted by suburb)
     //get suburb
-    trademelist.forEach(element => {
+    trademelist = await trademe.getFlatList(region,district);
+    //console.log(trademelist)
+    trademelist.List.forEach(async(element) => {
         suburb = element.Suburb
+        if(tooFar.includes(suburb)){
+            console.log("element too far");
+            
+        }else if(checkCloseEnough(suburb)){
+            console.log("added 1 flat");
 
-        if( (tooFar.includes(suburb))||(closeEnough.includes(suburb)) ){
-            console.log("element already checked")
         }else{
             region = stringFormat(region)
             suburb = stringFormat(suburb)
             destination = stringFormat(destination)
-            let suburbDuration = google.getSuburbDuration(region,suburb,destination)
+
+            let suburbDuration = await google.getSuburbDuration(region,suburb,destination)
+            console.log("Would call API here")
+            console.log(suburbDuration)
+
+            //get number of listings in that suburb
+            //add json to suburb
+            //suburbDuration = "20 mins"
+            if(suburbDuration > duration){
+                tooFar.push(suburb)
+                console.log(tooFar)
+            }else{
+                temp = {"suburb": suburb,"duration": suburbDuration,"numListings":1}
+                closeEnough.push(temp)
+                console.log(closeEnough)
+            }
+            
         }
     });
     
+}
 
-    
+sortBySuburb("Auckland","GridAKL","59","Auckland")
 
+const checkCloseEnough = (suburb) => {
+    if (closeEnough && closeEnough.length) {
+        console.log("array is empty")
+        return false
+    } else {
+        closeEnough.forEach(element => {
+            if (element.suburb == suburb) {
+                element.numListings = element.numListings + 1
+                return true
+            }
+        });
+        return false;
+    }
 }
 
 const gridList = () =>{

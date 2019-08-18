@@ -12,4 +12,4 @@ const getFlatList = async (region,district) => {
     }
 }
 //getFlatList("Auckland","Auckland").then(data=>console.log(data))
-module.exports=getFlatList;
+module.exports={getFlatList}
