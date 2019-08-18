@@ -21,10 +21,13 @@ const getSuburbDuration = async (region, suburb, destination) => {
         //console.log(response.data["routes"][0]);
         data = response.data.routes[0].legs[0].duration.value
         data = Math.round(data/60)
-        console.log(data);
+        //console.log(suburb,data);
+        //console.log(region, suburb, destination)
         return data;
     } catch (error) {
-        console.error(error);
+        //return "404"
+        //console.error("404 data not found");
+        return 5000;
     }
 }
 
