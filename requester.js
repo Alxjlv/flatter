@@ -1,8 +1,10 @@
 const google = require('./google')
+
 const trademe = require('./trademe')
 let tooFar = []
 let closeEnough = []
 //const ListingID;
+
 
 const sortBySuburb = async (region,destination,duration,district) =>{
     //cycle through trademe list (sorted by suburb)
@@ -16,6 +18,7 @@ const sortBySuburb = async (region,destination,duration,district) =>{
             
         }else if(checkCloseEnough(suburb)){
             console.log("added 1 flat");
+
         }else{
             region = stringFormat(region)
             suburb = stringFormat(suburb)

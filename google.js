@@ -75,6 +75,8 @@ const getFlatDuration = async (flat, region, suburb, destination) => {
 
 
 module.exports = {
+    suburb-filter
     getSuburbDuration,
     getFlatDuration
+
 }
