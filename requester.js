@@ -63,24 +63,8 @@ const sortBySuburb = async (region,destination,district,duration) =>{
 
 
 
-sortBySuburb("Auckland","GridAKL","59","Auckland")
-
-const checkCloseEnough = (suburb) => {
-    if (closeEnough && closeEnough.length) {
-        console.log("array is empty")
-        return false
-    } else {
-        closeEnough.forEach(element => {
-            if (element.suburb == suburb) {
-                element.numListings = element.numListings + 1
-                return true
-            }
-        });
-        return false;
-    }
-}
-const gridList=async(region,district, suburbID,destination)=>{
-  var flatslist=await trademe.getFlatList(region,district, "");
+const GridList=async(region,district, suburbID,destination)=>{
+  var flatslist=await trademe.getFlatList(region,district, suburbID);
   var promiseList=[]
   flatslist.forEach((flat)=>{
 
@@ -121,4 +105,3 @@ const stringFormat = (string) => { //removes whitespace in the input
 
 
 //console.log(suburbDuration)
-module.exports= {gridList}
