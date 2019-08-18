@@ -10,8 +10,8 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <!-- Custom CSS -->
-    <link rel="stylesheet" type="text/css" href="/css/style-header.css" />
-    <link rel="stylesheet" type="text/css" href="/css/style-search.css" />
+    <link rel="stylesheet" type="text/css" href="/css/style-header.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/style-search.css"/>
     <script type="text/javascript" src="/javascript/javascript.js"></script>
     <title>Search Flatter</title>
 </head>
@@ -20,21 +20,12 @@
 </header>
 
 <body>
-    <div class="container">
-        <div class="row" id="flats-listings">
-            <% var i = 0; flats.forEach(function(flat) { i++ %>
-            <div class="card mb-4 box-shadow col-sm-<%= i > 2 ? 4 : 6 %>">
-                <img class="card-img-top" src="<%= flat.picture %>" alt="<%= flat.title %>">
-                <div class="card-body">
-                    <p class="card-text"><%= flat.title %></p>
-                    <p class="card-text">Travel time: approx. <%= flat.duration %> minutes</p>
-                    <div class="d-flex justify-content-between align-items-center">
-                        <a href="https://trademe.co.nz/<%= flat.flatID %>"><button type="button" class="btn btn-sm btn-outline-secondary">View</button></a>
-                    </div>
-                </div>
-            </div>
-            <% }); %>
-        </div>
+    <div class="container">   
+    <div class="row"" id="suburb-listings">
+                <% var i = 0; suburbs.forEach(function(suburb) { i++ %>
+                    <div class="col-sm-<%= i > 2 ? 4 : 6 %>"><%= suburb.name %> - <%= suburb.duration %></div>
+                <% }); %>
+    </div>
     </div>
 
 
