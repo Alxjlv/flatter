@@ -12,7 +12,9 @@ const mockobject = {
 var suburbs = [
   { name: 'Auckland', duration: 7, numListings: 100 },
   { name: 'Hamilton', duration: 5, numListings: 70 },
-  { name: 'Example 3', duration: 10, numListings: 30 }
+  { name: 'Example 3', duration: 10, numListings: 30 },
+  { name: 'Example 4', duration: 10, numListings: 30 },
+  { name: 'Example 5', duration: 10, numListings: 30 }
 ];
 var tagline = "Any code of your own that you haven't looked at for six or more months might as well have been written by someone else.";
 var inputCommuteLocation, inputCommuteTime;
@@ -28,7 +30,6 @@ app.use(express.urlencoded()); // to support URL-encoded bodies
 // console.log(suburb("auckland","morningside","University-Of-Auckland"))
 
 router.use(function (req, res, next) {
-  console.log("/" + req.method);
   next();
 });
 
@@ -51,6 +52,13 @@ router.post('/search', function (req, res) {
   var inputCommuteLocation = req.body.inputCommuteLocation,
   inputCommuteTime = req.body.inputCommuteTime;
 })
+
+router.use('/listings', function (req, res) {
+  res.render(path + "listings", {
+    suburbs: suburbs,
+  });
+})
+
 app.use("/", router);
 
 app.use("*", function (req, res) {
