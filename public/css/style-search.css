@@ -33,17 +33,15 @@
   }
 
   .logo-home{
-    width: 45%;
-    padding-top: 15%;
+    width: 15%;
+    padding-top: 3%;
     display: block;
-    margin-left: auto;
-    margin-right: auto;
   }
 
   .content{
-      padding-left: 15%;
-      padding-right:15%;
-      /* text-align: center; */
+      padding-left: 5%;
+      padding-right:5%;
+      text-align: left;
   }
 
 .center{
@@ -54,14 +52,12 @@
 
 .col1{
   width:35%;
-  margin-left: 1%;
-  margin-right: 1%;
+  margin: 2%;
 }
 
 .col2{
   width:45%;
-  margin-left: 1%;
-  margin-right: 1%;
+  margin: 2%;
 }
 
 .col3{
@@ -69,10 +65,7 @@
 }
 
 .subhead{
-  color: #009EB2;
-  font-size: 20px;
-  padding-bottom: 5%;
-  text-align: center;
+display: none;
 }
 
 .findflat{
