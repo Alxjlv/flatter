@@ -15,7 +15,9 @@ const sortBySuburb = async (region,destination,district,duration) =>{
     //cycle through trademe list
     //get suburb
     let trademelist = await trademe.getFlatList(region,district);
-    //console.log(trademelist)
+
+    
+    console.log(trademelist, typeof trademelist)
     var promiseList = []
     trademelist.forEach((element) => {
         promiseList.push(
@@ -31,7 +33,7 @@ const sortBySuburb = async (region,destination,district,duration) =>{
             
         )
     })
-    suburblist=Promise.all(promiseList).then((v)=>{
+    suburblist=await Promise.all(promiseList).then((v)=>{
         v.forEach((item) => {
             if (item.duration > duration) {
                 console.log("deleted");
@@ -56,9 +58,9 @@ const sortBySuburb = async (region,destination,district,duration) =>{
 
     return suburblist
 }
-// sortBySuburb("Auckland", "GridAKL", "Auckland","50").then((d) => {
-//     console.log(closeEnough)
-// });
+sortBySuburb("Auckland", "GridAKL", "Auckland","50").then((d) => {
+    console.log(closeEnough)
+});
 
 
 
@@ -103,7 +105,7 @@ const gridList=async(region,district, suburbID,destination)=>{
 return gridlist
 }
 
-GridList("Auckland","Auckland City",282,"GridAkl").then((d)=>{console.log("list",d)});
+//GridList("Auckland","Auckland City",282,"GridAkl").then((d)=>{console.log("list",d)});
 
 const specificFlatDetails = (flat,destination) =>{
     //get region and suburb from trademe
