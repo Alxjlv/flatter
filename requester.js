@@ -17,7 +17,7 @@ const sortBySuburb = async (region,destination,district,duration) =>{
     let trademelist = await trademe.getFlatList(region,district);
 
     
-    console.log(trademelist, typeof trademelist)
+    //console.log(trademelist, typeof trademelist)
     var promiseList = []
     trademelist.forEach((element) => {
         promiseList.push(
@@ -59,7 +59,7 @@ const sortBySuburb = async (region,destination,district,duration) =>{
     return suburblist
 }
 sortBySuburb("Auckland", "GridAKL", "Auckland","50").then((d) => {
-    console.log(closeEnough)
+    console.log(closeEnough) //refactor to remove closeEnough list/make it so it isn't a global variable
 });
 
 
@@ -98,7 +98,7 @@ const gridList=async(region,district, suburbID,destination)=>{
       return flatDispObj;
     }
   ))})
-  gridlist= Promise.all(promiseList ).then(function(values) {
+  gridlist= await Promise.all(promiseList ).then(function(values) {
     //console.log(values);
     return values
   });
