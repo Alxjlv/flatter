@@ -33,7 +33,7 @@ const sortBySuburb = async (region,destination,district,duration) =>{
             
         )
     })
-    suburblist=await Promise.all(promiseList).then((v)=>{
+    suburblist = await Promise.all(promiseList).then((v)=>{
         v.forEach((item) => {
             if (item.duration > duration) {
                 console.log("deleted");
