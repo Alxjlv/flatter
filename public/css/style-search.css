@@ -50,17 +50,17 @@
   margin-right: auto;
 }
 
-.col1{
+.search-text-col{
   width:35%;
   margin: 2%;
 }
 
-.col2{
+.search-slider-col{
   width:45%;
   margin: 2%;
 }
 
-.col3{
+.search-submit-col{
   width:10%;
 }
 
