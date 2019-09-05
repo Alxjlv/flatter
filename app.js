@@ -103,11 +103,8 @@ app.set('view engine', 'ejs');
 
 app.use(express.static(__dirname + '/public'));
 
-
 app.use(express.json());       // to support JSON-encoded bodies
 app.use(express.urlencoded()); // to support URL-encoded bodies
-
-// console.log(suburb("auckland","morningside","University-Of-Auckland"))
 
 router.use(function (req, res, next) {
   next();

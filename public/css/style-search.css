@@ -4,7 +4,6 @@
 
 .slider {
     -webkit-appearance: none;
-    width: 70%;
     height: 15px;
     border-radius: 5px;
     background: #d3d3d3;
@@ -73,8 +72,4 @@ display: none;
   color: #ffffff;
   border-radius: 4px;
   box-shadow: 0 2px 8px 0 rgba(0,0,0,0.2), 0 2px 8px 0 rgba(0,0,0,0.19);
-}
-
-.flat-listing{
-  border:none;
 }
