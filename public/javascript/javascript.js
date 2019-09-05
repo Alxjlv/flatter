@@ -7,6 +7,6 @@
 //   output.innerHTML = this.value;
 // }
 
-$(document).ready(function(){
+$(document).ready(function () {
   $("#sliderInput").css("width", "calc(100% - 20px - " + $("#5minLabel").width() + "px - " + $("#2hrLabel").width() + "px)");
 });

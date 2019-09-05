@@ -132,12 +132,6 @@ router.post('/', function (req, res) {
   inputCommuteTime = req.body.inputCommuteTime;
 })
 
-router.use('/listings', function (req, res) {
-  res.render(path + "listings", {
-    suburbs: suburbs,
-  });
-})
-
 app.use("/", router);
 
 app.use("*", function (req, res) {
