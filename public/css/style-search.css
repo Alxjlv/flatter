@@ -4,7 +4,6 @@
 
 .slider {
     -webkit-appearance: none;
-    width: 80%;
     height: 15px;
     border-radius: 5px;
     background: #d3d3d3;
@@ -40,7 +39,7 @@
 
   .content{
       padding-left: 5%;
-      padding-right:5%;
+      padding-right: 5%;
       text-align: left;
   }
 
@@ -50,17 +49,17 @@
   margin-right: auto;
 }
 
-.col1{
+.text-col{
   width:35%;
   margin: 2%;
 }
 
-.col2{
+.slider-col{
   width:45%;
   margin: 2%;
 }
 
-.col3{
+.submit-col{
   width:10%;
 }
 

@@ -4,27 +4,30 @@
         <a href="/"><img src="/images/flatter-logo.png" class="img-fluid" alt="Responsive image"></a>
     </div>
 
-<div class="subhead">
-    <p>Find your perfect flat based on where you want to go!</p>
-</div>
+    <div class="subhead">
+        <p>Find your perfect flat based on where you want to go!</p>
+    </div>
     <form method="POST" class="center" action="search">
         <div class="form-row justify-content-center">
-            <div class="form-group col-md-3 col1">
-                <label for="inputEmail4">Where do you want to commute?</label>
-                <input type="text" class="form-control" name="inputCommuteLocation" placeholder="e.g. University of Auckland">
+            <div class="form-group col-md-3 text-col">
+                <label>Where do you want to commute?</label>
+                <input type="text" class="form-control" name="inputCommuteLocation"
+                    placeholder="e.g. University of Auckland">
             </div>
-            <div class="form-group col-md-3, col2">
-                <label for="inputPassword4">Preferred Commute Time</label>
-                <div class="slidecontainer">
+            <div class="form-group col-md-3, slider-col">
+                <label>Preferred Commute Time</label>
+                <div class="slide-container">
                     <div class="form-row">
-                        <p class="mr-1">&lt5min</p>
-                        <input type="range" min="5" max="120" value="50" class="slider" name="inputCommuteTime">
-                        <p class="ml-1">2hr+</p>
+                        <span class="mr-2 mt-1" id="5minLabel">5min</span>
+                        <input id="sliderInput" type="range" min="5" max="120" value="50" class="slider mt-2 border-0"
+                            name="inputCommuteTime">
+                        <span class="ml-2 mt-1" id="2hrLabel">2hr+</span>
+                        <!-- <p id="sliderOutput">test</p> -->
                     </div>
                 </div>
             </div>
-            <div class="form-group col-md-3, col3">
-                <button type="submit" id="search-button" class="btn btn-primary, findflat">Find Flats</button>
+            <div class="form-group col-md-3, submit-col align-self-center">
+                <button type="submit" id="search-button" class="btn btn-primary findflat">Find Flats</button>
             </div>
         </div>
     </form>

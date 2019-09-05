@@ -12,31 +12,36 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" type="text/css" href="/css/style-header.css" />
     <link rel="stylesheet" type="text/css" href="/css/style-search.css" />
-    <script type="text/javascript" src="/javascript/javascript.js"></script>
+
     <title>Search Flatter</title>
 </head>
 <header>
+    <!-- HTML code for logo and input form -->
     <% include partials/header %>
 </header>
 
 <body>
+    <!-- <p><%= inputCommuteLocation %> <%= inputCommuteTime %></p> -->
     <div class="container">
-        <div class="row" id="flats-listings">
+        <div class="row">
             <% var i = 0; flats.forEach(function(flat) { i++ %>
-            <div class="card mb-4 box-shadow col-sm-<%= i > 2 ? 4 : 6 %>">
-                <img class="card-img-top" src="<%= flat.picture %>" alt="<%= flat.title %>">
-                <div class="card-body">
-                    <p class="card-text"><%= flat.title %></p>
-                    <p class="card-text">Travel time: approx. <%= i*3 + 20 %> minutes</p>
-                    <div class="d-flex justify-content-between align-items-center">
-                        <a href="https://trademe.co.nz/<%= flat.flatID %>"><button type="button" class="btn btn-sm btn-outline-secondary">View</button></a>
+            <div class="col-sm-<%= i > 2 ? 4 : 6 %> mb-4">
+                <div class="card" style="border:none">
+                    <a href="https://trademe.co.nz/<%= flat.flatID %>">
+                        <img class="card-img-top" src="<%= flat.picture %>" alt="<%= flat.title %>">
+                    </a>
+                    <div class="card-body px-0 pt-2 d-flex flex-wrap justify-content-between">
+                        <p class="card-text mb-2"><%= flat.title %><br>Travel time: approx. <%= i*3 + 20 %> minutes</p>
+                        <div>
+                            <a href="https://trademe.co.nz/<%= flat.flatID %>"
+                                class="btn btn-sm btn-outline-secondary btn-block">View</a>
+                        </div>
                     </div>
                 </div>
             </div>
             <% }); %>
         </div>
     </div>
-
 
 
 
@@ -51,6 +56,9 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
+
+    <!-- Custom JS -->
+    <script type="text/javascript" src="/javascript/javascript.js"></script>
 </body>
 
 </html>
