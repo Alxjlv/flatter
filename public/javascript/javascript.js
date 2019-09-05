@@ -1,8 +1,8 @@
-// var slider = $("#myRange");
-// var output = $("#demo");
+// var slider = $("#sliderInput")[0];
+// var output = $("#sliderOutput")[0];
 // output.innerHTML = slider.value; // Display the default slider value
 
-// // Update the current slider value (each time you drag the slider handle)
+// Update the current slider value (each time you drag the slider handle)
 // slider.oninput = function() {
 //   output.innerHTML = this.value;
 // }
