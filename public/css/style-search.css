@@ -4,7 +4,7 @@
 
 .slider {
     -webkit-appearance: none;
-    width: 80%;
+    width: 70%;
     height: 15px;
     border-radius: 5px;
     background: #d3d3d3;
@@ -40,7 +40,7 @@
 
   .content{
       padding-left: 5%;
-      padding-right:5%;
+      padding-right: 5%;
       text-align: left;
   }
 
@@ -50,17 +50,17 @@
   margin-right: auto;
 }
 
-.search-text-col{
+.text-col{
   width:35%;
   margin: 2%;
 }
 
-.search-slider-col{
+.slider-col{
   width:45%;
   margin: 2%;
 }
 
-.search-submit-col{
+.submit-col{
   width:10%;
 }
 
@@ -73,4 +73,8 @@ display: none;
   color: #ffffff;
   border-radius: 4px;
   box-shadow: 0 2px 8px 0 rgba(0,0,0,0.2), 0 2px 8px 0 rgba(0,0,0,0.19);
+}
+
+.flat-listing{
+  border:none;
 }
