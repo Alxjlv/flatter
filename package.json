@@ -1,27 +1,28 @@
 {
-  "name": "flat-earth",
+  "name": "flatter",
   "version": "1.0.0",
   "description": "The missing link between searching for flats and public transport",
   "main": "app.js",
   "scripts": {
-    "test": "test"
+    "test": "test",
+    "start": "node app.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Alxjlv/flat-earth.git"
+    "url": "git+https://github.com/Alxjlv/flatter.git"
   },
   "keywords": [
     "flats"
   ],
-  "author": "Team Flat Earth",
+  "author": "Alex & Rawiri",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Alxjlv/flat-earth/issues"
+    "url": "https://github.com/Alxjlv/flatter/issues"
   },
-  "homepage": "https://github.com/Alxjlv/flat-earth#readme",
+  "homepage": "https://github.com/Alxjlv/flatter#readme",
   "dependencies": {
     "axios": "^0.19.0",
-    "ejs": "^1.0.0",
+    "ejs": "^3.0.2",
     "express": "^4.17.1"
   }
 }
